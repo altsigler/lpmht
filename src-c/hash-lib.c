@@ -515,7 +515,7 @@ static int routeFind(sharedHash_t *route_table,
 }
 
 /******************************************************************************
-** Changes the size of the per-prefix hash table. The function is used
+** Changes the size of the hash table. The function is used
 ** to increase and decrease the size of the table.
 **
 ** When the hash table size is changed, all entries must be rehashed.

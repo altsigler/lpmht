@@ -6,7 +6,10 @@ operating systems. The application leverages the capabilities of modern
 64-bit CPUs and operating systems. The program has been tested on Linux/X86_64,
 Linux/ARM64, and MacOS/ARM64. The program doesn't compile on 32 bit processors.
 
-Type "make" in the src-c directory to build the code. The make file creates two 
+The program is also implemented in C++20. The C code is in the src-c directory 
+and the C++ code is in the src-c++ directory.
+
+Type "make" in the src-c directory to build the C code. The make file creates two 
 executables: test-lpmht and test-perf. The test-lpmht focuses on code coverage
 tests and the test-perf focuses on route lookup performance tests. The test 
 platform should have at least 6GB of DRAM to run the test-perf application.

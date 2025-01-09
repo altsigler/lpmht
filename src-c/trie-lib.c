@@ -32,17 +32,6 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-#include <ctype.h>
-#include <sys/mman.h>
-#include <unistd.h>
-#include <sys/types.h>
-#include <fcntl.h>
-#include <limits.h>
-#include <sys/file.h>
-#include <sys/stat.h>
-#include <errno.h>
-#include <sys/mman.h>
-#include <pthread.h>
 #include <assert.h>
 
 #include "lpmht-api.h"

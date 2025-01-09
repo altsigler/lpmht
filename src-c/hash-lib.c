@@ -231,7 +231,7 @@ const static union ipv6PrefixMap_u ipv6_prefix_map[129] =
 ** Return Values:
 **  Masked IPv4 Prefix
 ******************************************************************************/
-static unsigned int ipv4MaskedPrefixCompute(unsigned int prefix32, 
+inline static unsigned int ipv4MaskedPrefixCompute(unsigned int prefix32, 
                                                 unsigned char prefix_size)
 {
   return  prefix32 & ipv4_prefix_map[prefix_size].prefix32;
@@ -247,7 +247,7 @@ static unsigned int ipv4MaskedPrefixCompute(unsigned int prefix32,
 ** Return Values:
 **  Masked IPv6 Prefix
 ******************************************************************************/
-static unsigned __int128 ipv6MaskedPrefixCompute(unsigned __int128 prefix128, 
+inline static unsigned __int128 ipv6MaskedPrefixCompute(unsigned __int128 prefix128, 
                                                 unsigned char prefix_size)
 {
   return  prefix128 & ipv6_prefix_map[prefix_size].prefix128;
@@ -263,7 +263,7 @@ static unsigned __int128 ipv6MaskedPrefixCompute(unsigned __int128 prefix128,
 ** Return Values:
 **  Hash Index.
 ******************************************************************************/
-unsigned int ipv4HashCompute (unsigned int masked_prefix, 
+inline unsigned int ipv4HashCompute (unsigned int masked_prefix, 
                                 unsigned char prefix_size,
                                 unsigned int table_size)
 {
@@ -316,7 +316,7 @@ unsigned int ipv4HashCompute (unsigned int masked_prefix,
 ** Return Values:
 **  Hash Index.
 ******************************************************************************/
-unsigned int ipv6HashCompute (unsigned __int128 masked_prefix, 
+inline unsigned int ipv6HashCompute (unsigned __int128 masked_prefix, 
                                 unsigned char prefix_size,
                                 unsigned int table_size)
 {

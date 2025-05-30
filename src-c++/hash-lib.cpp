@@ -879,9 +879,12 @@ void sharedHash::ipv6_flow_age_thread(void)
 
   do
   {
-    std::this_thread::sleep_for(std::chrono::seconds(route_table.flow_age_dispatch_time));
-    if (st.stop_requested())
-      break;
+    for (unsigned int sleep_time = 0; sleep_time < route_table.flow_age_dispatch_time; sleep_time++)
+    {
+      std::this_thread::sleep_for(std::chrono::seconds(1));
+      if (st.stop_requested())
+        return;
+    }
 
     for (i = 0; i < route_table.ipv6_max_flows; i++)
     {
@@ -1087,6 +1090,11 @@ sharedHash::sharedHash(const unsigned int max_routes, const lpmhtIpMode_e ip_mod
 ******************************************************************************/
 sharedHash::~sharedHash(void)
 {
+  if (route_table.ipv6_flow_enabled)
+  {
+    ipv6_flow_ageing_thread.request_stop();
+    ipv6_flow_ageing_thread.join();
+  }
   if (route_table.ipv4_rules_enabled)
   {
     /* Free the rule table memory.
